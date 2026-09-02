@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import SiteHeader from "../components/SiteHeader";
+import SiteHeader from "../../../components/layout/SiteHeader";
+import { ROUTES } from "../../../lib/routes";
 
 const cards = [
   { name: "Venom, Eddie Brock", type: "Creature", role: "Theme / Pressure" },
@@ -13,7 +14,7 @@ const cards = [
   { name: "Grendel, Spawn of Knull", type: "Creature", role: "Finisher / Theme" },
 ];
 
-export default function VenomDeck() {
+export default function VenomDeckPage() {
   const [search, setSearch] = useState("");
   const visibleCards = useMemo(
     () => cards.filter(card => card.name.toLowerCase().includes(search.toLowerCase())),
@@ -34,8 +35,8 @@ export default function VenomDeck() {
                 sem transformar o deck em algo que deixe de parecer Venom.
               </p>
               <div className="deck-actions">
-                <Link className="comic-btn yellow" to="/">← Home</Link>
-                <Link className="comic-btn blue" to="/decks/food-and-fellowship">Food & Fellowship →</Link>
+                <Link className="comic-btn yellow" to={ROUTES.home}>← Home</Link>
+                <Link className="comic-btn blue" to={ROUTES.foodAndFellowshipDeck}>Food & Fellowship →</Link>
               </div>
             </div>
             <div className="venom-art-wrap">

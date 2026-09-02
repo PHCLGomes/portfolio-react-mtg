@@ -1,7 +1,13 @@
 import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 
-export default function DeckCard({ title, eyebrow, description, to, className = "" }) {
+export default function DeckCard({
+  title,
+  eyebrow,
+  description,
+  to,
+  className = ""
+}) {
   const cardRef = useRef(null);
 
   function handlePointerMove(event) {

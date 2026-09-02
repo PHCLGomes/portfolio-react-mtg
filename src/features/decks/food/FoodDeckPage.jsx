@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import SiteHeader from "../components/SiteHeader";
+import SiteHeader from "../../../components/layout/SiteHeader";
+import { ROUTES } from "../../../lib/routes";
 
 const stats = [
   ["2", "Commanders", "Partner Pair"],
@@ -18,7 +19,7 @@ const mechanics = [
   ["Draw & Value", "Turn small advantages into overwhelming momentum."]
 ];
 
-export default function FoodDeck() {
+export default function FoodDeckPage() {
   const [selectedCard, setSelectedCard] = useState(null);
   const viewerRef = useRef(null);
 
@@ -210,8 +211,8 @@ export default function FoodDeck() {
             </blockquote>
 
             <div className="cinematic-footer-actions">
-              <Link to="/" className="cinematic-footer-btn outline">← Back to Home</Link>
-              <Link to="/decks/venom" className="cinematic-footer-btn gold">View Venom Deck →</Link>
+              <Link to={ROUTES.home} className="cinematic-footer-btn outline">← Back to Home</Link>
+              <Link to={ROUTES.venomDeck} className="cinematic-footer-btn gold">View Venom Deck →</Link>
             </div>
           </div>
         </section>

@@ -1,8 +1,9 @@
 import React from "react";
-import SiteHeader from "../components/SiteHeader";
-import DeckCard from "../components/DeckCard";
+import SiteHeader from "../../components/layout/SiteHeader";
+import { ROUTES } from "../../lib/routes";
+import DeckCard from "./components/DeckCard";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <>
       <SiteHeader />
@@ -108,14 +109,14 @@ export default function Home() {
                 eyebrow="Commander // Golgari"
                 title="Venom, Deadly Devourer"
                 description="Um deck agressivo e temático, apresentado como uma edição especial de quadrinhos."
-                to="/decks/venom"
+                to={ROUTES.venomDeck}
                 className="venom-project"
               />
               <DeckCard
                 eyebrow="Commander // Abzan"
                 title="Food and Fellowship"
                 description="Food, Hobbits, value e fellowship — preservando a alma do precon enquanto melhora a consistência."
-                to="/decks/food-and-fellowship"
+                to={ROUTES.foodAndFellowshipDeck}
                 className="food-project"
               />
             </div>
