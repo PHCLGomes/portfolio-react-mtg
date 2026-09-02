@@ -36,6 +36,17 @@ Vite normally starts on:
 npm run build
 ```
 
+## Project structure
+
+```text
+src/
+├── app/          # Application shell and route composition
+├── components/   # Shared interface components
+├── features/     # Feature-specific pages and components
+├── lib/          # Shared constants and utilities
+└── styles/       # Global design tokens and application styles
+```
+
 Production files will be generated in `/dist`.
 
 ## AWS deployment direction
@@ -150,8 +161,8 @@ This version includes:
 - `Dockerfile`
 - `docker-compose.yml`
 - `.dockerignore`
-- `docker-start.ps1`
-- `docker-stop.ps1`
+- `scripts/docker/start.ps1`
+- `scripts/docker/stop.ps1`
 
 ### Requirements
 
@@ -202,11 +213,11 @@ docker compose up --build
 You can also run:
 
 ```powershell
-.\docker-start.ps1
+.\scripts\docker\start.ps1
 ```
 
 and stop with:
 
 ```powershell
-.\docker-stop.ps1
+.\scripts\docker\stop.ps1
 ```
