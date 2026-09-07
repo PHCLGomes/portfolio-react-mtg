@@ -16,6 +16,7 @@ const cards = [
 
 export default function VenomDeckPage() {
   const [search, setSearch] = useState("");
+  const [isCommanderFlipped, setIsCommanderFlipped] = useState(false);
   const visibleCards = useMemo(
     () => cards.filter(card => card.name.toLowerCase().includes(search.toLowerCase())),
     [search]
@@ -40,7 +41,27 @@ export default function VenomDeckPage() {
               </div>
             </div>
             <div className="venom-art-wrap">
-              <img src="/venom-borderless.png" alt="Venom borderless" className="venom-art" />
+              <button
+                type="button"
+                className={`venom-flip-card${isCommanderFlipped ? " is-flipped" : ""}`}
+                onClick={() => setIsCommanderFlipped(current => !current)}
+                aria-label={isCommanderFlipped ? "Mostrar a face do Venom" : "Mostrar a face de Eddie Brock"}
+                aria-pressed={isCommanderFlipped}
+              >
+                <span className="venom-flip-card-inner">
+                  <span className="venom-card-face venom-card-front">
+                    <img src="/venom-borderless.png" alt="Face do Venom" />
+                    <span className="venom-card-shine" aria-hidden="true" />
+                  </span>
+                  <span className="venom-card-face venom-card-back">
+                    <img src="/eddie-brock.png" alt="Face de Eddie Brock" />
+                    <span className="venom-card-shine" aria-hidden="true" />
+                  </span>
+                </span>
+                <span className="venom-flip-hint">
+                  {isCommanderFlipped ? "Clique para ver Venom" : "Clique para ver Eddie Brock"}
+                </span>
+              </button>
               <div className="comic-note">BUILT TO SURVIVE.<br />BUILT TO EVOLVE.</div>
             </div>
           </div>
